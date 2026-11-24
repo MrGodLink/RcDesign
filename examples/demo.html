@@ -1,112 +1,208 @@
-<!doctype html>
-<html lang="en" data-rc-style="claymorphism">
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RcDesign — 10 styles, one engine</title>
-<style>
-  body{margin:0;padding:28px 20px 100px;max-width:1040px;margin-inline:auto}
-  .rc-demo-bar{position:sticky;top:0;z-index:30;display:flex;flex-wrap:wrap;gap:8px;padding:14px 0;margin-bottom:28px;background:inherit}
-  .rc-demo-bar button{all:unset;cursor:pointer}
-  h1{font-size:clamp(28px,5vw,44px);margin:0 0 6px}
-  p.lead{opacity:.8;max-width:60ch;margin:0 0 26px}
-  h2{font-size:22px;margin:48px 0 18px}
-  .row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:16px}
-  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;align-items:start}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RcDesign Showcase - Tutti gli Stili</title>
+    <!-- Libreria RcDesign -->
+    <script src="https://cdn.jsdelivr.net/gh/MrGodLink/RcDesign/rc_design.js"></script>
+    
+    <style>
+        /* Layout base della showcase (non interferisce con le variabili --rc-*) */
+        :root {
+            --bg-page: #f4f4f5;
+            --text-page: #18181b;
+        }
+        [data-theme="dark"] {
+            --bg-page: #09090b;
+            --text-page: #fafafa;
+        }
+        
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-page);
+            padding: 2rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+        }
+
+        h1 { margin: 0; font-size: 1.5rem; }
+
+        .theme-toggle {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid currentColor;
+            background: transparent;
+            color: inherit;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 2rem;
+        }
+
+        .style-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .style-label {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.7;
+        }
+
+        /* Override specifico per rendere il modal visibile sopra tutto */
+        dialog.rc-modal {
+            z-index: 9999;
+        }
+    </style>
 </head>
 <body>
 
-<div class="rc-demo-bar" id="styleBar"></div>
+    <header>
+        <h1>RcDesign v1.0.0 – Showcase Completa</h1>
+        <button class="theme-toggle" onclick="toggleTheme()">Cambia Tema (Chiaro/Scuro)</button>
+    </header>
 
-<h1>RcDesign</h1>
-<p class="lead">One engine, ten UI design styles, zero markup changes.
-Pick a style above — every control below is the same HTML.</p>
+    <main class="showcase-grid" id="showcase">
+        <!-- I contenitori verranno generati via JS per mantenere il codice DRY, 
+             ma ognuno avrà l'attributo data-rc-style specifico -->
+    </main>
 
-<h2>Navigation</h2>
-<nav class="rc-nav rc-tilt" aria-label="Demo nav">
-  <a href="#home" data-icon="home" aria-current="page">Home</a>
-  <a href="#likes" data-icon="heart">Likes</a>
-  <a href="#create" data-icon="plus">Create</a>
-  <a href="#profile" data-icon="user">Profile</a>
-  <a href="#alerts" data-icon="bell">Alerts</a>
-</nav>
+    <!-- Modal di esempio (nascosto di default) -->
+    <dialog class="rc-modal" id="demo-modal">
+        <div class="rc-panel" style="border: none; box-shadow: none; background: transparent;">
+            <h3>Conferma Azione</h3>
+            <p>Questo è un esempio di dialog.rc-modal stilizzato con lo stile attivo.</p>
+            <div style="display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px;">
+                <button class="rc-btn" onclick="document.getElementById('demo-modal').close()">Annulla</button>
+                <button class="rc-btn rc-btn--acc" onclick="document.getElementById('demo-modal').close(); RcDesign.toast('Azione confermata', {duration: 2500})">Conferma</button>
+            </div>
+        </div>
+    </dialog>
 
-<h2>Buttons &amp; controls</h2>
-<div class="row">
-  <button class="rc-btn rc-btn--hi">Start a project</button>
-  <button class="rc-btn">Clear</button>
-  <button class="rc-btn rc-btn--acc">Tinted</button>
-</div>
-<div class="row">
-  <button class="rc-switch" aria-label="Notifications" aria-checked="true"></button><span>Notifications</span>
-  <div class="rc-seg" role="radiogroup" aria-label="Type">
-    <button role="radio" aria-checked="false" tabindex="-1">Design</button>
-    <button role="radio" aria-checked="true">Video</button>
-    <button role="radio" aria-checked="false" tabindex="-1">Apps</button>
-  </div>
-  <span class="rc-chip" aria-pressed="true">AI</span>
-  <span class="rc-chip" aria-pressed="false">Film</span>
-</div>
+    <script>
+        // 1. Configurazione degli stili supportati dalla libreria
+        const styles = [
+            'skeuomorphism', 'neumorphism', 'glassmorphism', 'claymorphism', 
+            'brutalism', 'minimalism', 'maximalism', 'liquid-glass', 
+            'bento-grid', 'spatial-ui'
+        ];
 
-<h2>Cards &amp; overlays</h2>
-<div class="grid3">
-  <article class="rc-card rc-tilt">
-    <h3>Content card</h3>
-    <p>Image, title, text and an action.</p>
-    <button class="rc-btn rc-btn--acc" data-rc-open="details">Open details</button>
-  </article>
-  <div class="rc-price">
-    <h3>Pricing</h3>
-    <div class="rc-amount">€79 <small>one-time</small></div>
-  </div>
-  <div class="rc-panel">
-    <h3>Dashboard</h3>
-    <div>12,480 <span class="rc-delta">+18%</span></div>
-    <div class="rc-bars"><i style="height:40%"></i><i style="height:60%"></i><i style="height:35%"></i><i style="height:85%"></i><i style="height:100%"></i></div>
-    <div class="row">
-      <span class="rc-tip"><button class="rc-btn" aria-describedby="t1">Tooltip</button><span id="t1" role="tooltip">Hover or focus me</span></span>
-      <button class="rc-btn rc-btn--acc" id="toastBtn">Show toast</button>
-    </div>
-  </div>
-</div>
+        // 2. Generazione dinamica della griglia di anteprima
+        const container = document.getElementById('showcase');
+        
+        styles.forEach(style => {
+            const section = document.createElement('section');
+            section.className = 'style-section';
+            // L'attributo data-rc-style attiva le variabili CSS specifiche della libreria
+            section.setAttribute('data-rc-style', style);
+            
+            // Contenuto specifico per bento-grid per dimostrare le classi di griglia
+            const isBento = style === 'bento-grid';
+            const innerHTML = isBento ? `
+                <div class="rc-bento">
+                    <div class="rc-bento__item" data-span="2x1"><h3>Header 2x1</h3><p>Span orizzontale</p></div>
+                    <div class="rc-bento__item" data-tint="acc"><h3>Accento</h3><p>Tinta primaria</p></div>
+                    <div class="rc-bento__item" data-span="1x2"><h3>Sidebar 1x2</h3><p>Span verticale</p></div>
+                    <div class="rc-bento__item"><h3>Normale</h3><p>Cella base</p></div>
+                    <div class="rc-bento__item" data-tint="acc2"><h3>Accento 2</h3><p>Tinta secondaria</p></div>
+                </div>
+            ` : `
+                <div class="rc-card rc-tilt">
+                    <h3>Titolo Card</h3>
+                    <p style="opacity: 0.8; margin-bottom: 16px;">Anteprima stile: <strong>${style}</strong></p>
+                    
+                    <div class="rc-seg" role="group" style="margin-bottom: 16px;">
+                        <button class="rc-seg__button" aria-checked="true">Giorno</button>
+                        <button class="rc-seg__button">Settimana</button>
+                        <button class="rc-seg__button">Mese</button>
+                    </div>
 
-<h2>Bento grid</h2>
-<div class="rc-bento">
-  <div class="rc-bento__item" data-span="2x1" data-tint="acc"><strong>Revenue</strong></div>
-  <div class="rc-bento__item"><strong>Users</strong></div>
-  <div class="rc-bento__item" data-span="1x2"><strong>Retention</strong></div>
-  <div class="rc-bento__item" data-tint="acc2"><strong>Churn</strong></div>
-  <div class="rc-bento__item"><strong>NPS</strong></div>
-</div>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+                        <button class="rc-btn">Normale</button>
+                        <button class="rc-btn rc-btn--acc">Accento</button>
+                        <button class="rc-btn rc-btn--hi">Highlight</button>
+                    </div>
 
-<dialog class="rc-modal" id="details" aria-labelledby="dt">
-  <div class="rc-dlg">
-    <header><h2 id="dt">RcDesign</h2><button class="rc-btn" data-rc-close>Close</button></header>
-    <p>Ten styles, one shared set of components. Switch the style above and watch this exact markup change character.</p>
-    <button class="rc-btn rc-btn--hi rc-btn--block" data-rc-close>Got it</button>
-  </div>
-</dialog>
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                        <button class="rc-switch" aria-checked="true" role="switch" title="Switch attivo"><i></i></button>
+                        <button class="rc-switch" aria-checked="false" role="switch" title="Switch inattivo"><i></i></button>
+                        <span class="rc-chip" aria-pressed="true">Chip Attivo</span>
+                        <span class="rc-chip">Chip</span>
+                    </div>
 
-<script src="../rc_design.js"></script>
-<script>
-  var STYLES = ['skeuomorphism','neumorphism','glassmorphism','claymorphism','brutalism','minimalism','maximalism','liquid-glass','bento-grid','spatial-ui'];
-  var bar = document.getElementById('styleBar');
-  STYLES.forEach(function (name) {
-    var b = document.createElement('button');
-    b.className = 'rc-chip';
-    b.textContent = name;
-    b.setAttribute('aria-pressed', String(name === document.documentElement.getAttribute('data-rc-style')));
-    b.addEventListener('click', function () {
-      RcDesign.use(name);
-      bar.querySelectorAll('.rc-chip').forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
-      b.setAttribute('aria-pressed', 'true');
-    });
-    bar.appendChild(b);
-  });
-  document.getElementById('toastBtn').addEventListener('click', function () {
-    RcDesign.toast('Saved to your library');
-  });
-</script>
+                    <div class="rc-bars" style="margin-bottom: 16px;">
+                        <i style="height: 40%"></i>
+                        <i style="height: 70%"></i>
+                        <i style="height: 50%"></i>
+                        <i style="height: 90%"></i>
+                        <i style="height: 65%"></i>
+                    </div>
+
+                    <div class="rc-nav" style="max-width: 320px; margin-bottom: 16px;">
+                        <a href="#" class="rc-nav__a" aria-current="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                            Home
+                        </a>
+                        <a href="#" class="rc-nav__a">
+                            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            Preferiti
+                        </a>
+                        <a href="#" class="rc-nav__a">
+                            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            Profilo
+                        </a>
+                    </div>
+
+                    <div style="display: flex; gap: 8px;">
+                        <button class="rc-btn rc-btn--block" onclick="RcDesign.toast('Notifica generata con successo!', {duration: 3000})">
+                            Attiva Toast
+                        </button>
+                        <button class="rc-btn rc-btn--block" onclick="document.getElementById('demo-modal').showModal()">
+                            Apri Modal
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            section.innerHTML = `<span class="style-label">${style}</span>${innerHTML}`;
+            container.appendChild(section);
+        });
+
+        // 3. Inizializzazione esplicita della libreria
+        // La libreria si auto-inizializza, ma chiamare init() garantisce l'elaborazione degli elementi dinamici
+        document.addEventListener('DOMContentLoaded', () => {
+            RcDesign.init();
+        });
+
+        // 4. Gestione del tema globale (Chiaro/Scuro)
+        function toggleTheme() {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', next);
+            
+            // Aggiorna anche le istanze RcDesign se necessario
+            RcDesign.setColorMode(next);
+        }
+    </script>
 </body>
 </html>
