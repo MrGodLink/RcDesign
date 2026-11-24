@@ -2,7 +2,7 @@
 
 [English](./README.md) | **Italiano**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE) [![Version](https://img.shields.io/badge/version-1.0.0-green)](#) [![Platform](https://img.shields.io/badge/platform-Browser%20%7C%20JS%20%2B%20CSS-blue)](#) [![GitHub stars](https://img.shields.io/github/stars/MrGodLink/RcDesign?style=social)](https://github.com/MrGodLink/RcDesign/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE) [![Version](https://img.shields.io/badge/version-1.0.0-green)](#) [![Platform](https://img.shields.io/badge/platform-Browser%20%7C%20JS%20%2B%20CSS-blue)](#) [![GitHub stars](https://img.shields.io/github/stars/MrGodLink/RcDesign?style=social)](https://github.com/MrGodLink/RcDesign/stargazers) [![Claude Skill](https://img.shields.io/badge/Claude-Skill-d97757)](#) [![AI Agent](https://img.shields.io/badge/AI-Agent-purple)](#)
 
 **Un motore solo, dieci stili di design UI, zero modifiche al markup.** Skeuomorphism, Neumorphism, Glassmorphism, Claymorphism, Brutalism, Minimalism, Maximalism, Liquid Glass, Bento Grid e Spatial UI — cambi l'aspetto di tutta la pagina con un solo attributo.
 
