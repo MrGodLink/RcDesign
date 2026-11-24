@@ -3,10 +3,6 @@
  * Author: Raffaele Catapano — https://github.com/MrGodLink
  * Repository: https://github.com/MrGodLink/RcDesign
  * License: MIT
- *
- * This file is the MAINTAINED source. The file shipped for consumption
- * (rc_design.css at the repo root) is a minified/obfuscated build of
- * this source, produced by build/build.mjs. Edit here, then rebuild.
  */
 
 :root, [data-rc-style]{
