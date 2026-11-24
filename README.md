@@ -177,9 +177,6 @@ RcDesign/
 ├── src/
 │   ├── rc-design.js        Readable, maintained source.
 │   └── rc-design.css       Readable, maintained source.
-├── build/
-│   ├── build.mjs           Rebuilds the two root files from src/.
-│   └── smoke-test.mjs      Functional test run against the built rc_design.js.
 ├── examples/
 │   └── demo.html           All ten styles with a live switcher.
 ├── skills/

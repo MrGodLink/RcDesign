@@ -186,9 +186,6 @@ RcDesign/
 ├── src/
 │   ├── rc-design.js        Sorgente leggibile e mantenuto.
 │   └── rc-design.css       Sorgente leggibile e mantenuto.
-├── build/
-│   ├── build.mjs           Ricostruisce i due file nella radice da src/.
-│   └── smoke-test.mjs      Test funzionale sul rc_design.js costruito.
 ├── examples/
 │   └── demo.html           Tutti e dieci gli stili con uno switcher dal vivo.
 ├── skills/
