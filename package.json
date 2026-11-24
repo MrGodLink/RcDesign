@@ -1,0 +1,37 @@
+{
+  "name": "rc-design",
+  "version": "1.0.0",
+  "description": "A single-file engine for 10 UI design styles: Skeuomorphism, Neumorphism, Glassmorphism, Claymorphism, Brutalism, Minimalism, Maximalism, Liquid Glass, Bento Grid and Spatial UI.",
+  "main": "rc_design.js",
+  "style": "rc_design.css",
+  "files": [
+    "rc_design.js",
+    "rc_design.css",
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node build/build.mjs"
+  },
+  "author": {
+    "name": "Raffaele Catapano",
+    "url": "https://github.com/MrGodLink"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MrGodLink/RcDesign.git"
+  },
+  "homepage": "https://github.com/MrGodLink/RcDesign",
+  "keywords": [
+    "design-system", "css", "ui", "skeuomorphism", "neumorphism",
+    "glassmorphism", "claymorphism", "brutalism", "minimalism",
+    "maximalism", "liquid-glass", "bento-grid", "spatial-ui"
+  ],
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "javascript-obfuscator": "^4.1.1",
+    "terser": "^5.36.0"
+  }
+}

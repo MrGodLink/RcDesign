@@ -1,0 +1,340 @@
+/*!
+ * RcDesign — 10 design-style engine (readable source, for maintenance)
+ * Author: Raffaele Catapano — https://github.com/MrGodLink
+ * Repository: https://github.com/MrGodLink/RcDesign
+ * License: MIT
+ *
+ * This file is the MAINTAINED source. The file shipped for consumption
+ * (rc_design.css at the repo root) is a minified/obfuscated build of
+ * this source, produced by build/build.mjs. Edit here, then rebuild.
+ */
+
+:root, [data-rc-style]{
+  color-scheme: light dark;
+  --rc-h: 48px;
+  --rc-gap: 20px;
+  --rc-ease: cubic-bezier(.3,1.6,.5,1);
+}
+
+/* ---------------------------------------------------------------------
+ * Theme 1 — Skeuomorphism: tactile, beveled, warm material light
+ * ------------------------------------------------------------------- */
+[data-rc-style="skeuomorphism"]{
+  --rc-bg:#ece1cd;        --rc-bg-d:#19140d;
+  --rc-surf:#f5ecdc;      --rc-surf-d:#231c12;
+  --rc-ink:#3a2c1d;       --rc-ink-d:#ece1cd;
+  --rc-acc:#b4812f;       --rc-acc2:#8a5a2b;
+  --rc-onacc:#2a1d0f;
+  --rc-radius:14px;
+  --rc-border: 1px solid rgba(40,25,10,.35);
+  --rc-border-d: 1px solid rgba(0,0,0,.6);
+  --rc-blur: none;
+  --rc-gloss: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,0) 55%);
+  --rc-shadow: inset 0 1px 0 rgba(255,255,255,.6), inset 0 -10px 16px rgba(40,25,10,.12), 0 10px 18px -8px rgba(40,25,10,.45);
+  --rc-shadow-in: inset 0 3px 8px rgba(40,25,10,.45), inset 0 -1px 0 rgba(255,255,255,.4);
+  --rc-font-d: ui-serif, Georgia, "Times New Roman", serif;
+  --rc-font-b: ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ---------------------------------------------------------------------
+ * Theme 2 — Neumorphism: soft same-hue extrusion, dual shadow
+ * ------------------------------------------------------------------- */
+[data-rc-style="neumorphism"]{
+  --rc-bg:#e4e9f0;        --rc-bg-d:#232a35;
+  --rc-surf:#e4e9f0;      --rc-surf-d:#232a35;
+  --rc-ink:#28324a;       --rc-ink-d:#e7ecf5;
+  --rc-acc:#5468ff;       --rc-acc2:#7c8bff;
+  --rc-onacc:#fff;
+  --rc-radius:22px;
+  --rc-border: none;
+  --rc-border-d: none;
+  --rc-blur: none;
+  --rc-gloss: none;
+  --rc-shadow: -9px -9px 18px rgba(255,255,255,.85), 9px 9px 18px rgba(163,177,198,.55);
+  --rc-shadow-in: inset -7px -7px 14px rgba(255,255,255,.75), inset 7px 7px 14px rgba(163,177,198,.6);
+  --rc-font-d: ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+  --rc-font-b: ui-rounded, system-ui, sans-serif;
+}
+[data-theme="dark"] [data-rc-style="neumorphism"], [data-rc-style="neumorphism"][data-theme="dark"]{}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) [data-rc-style="neumorphism"], :root:not([data-theme="light"])[data-rc-style="neumorphism"]{
+    --rc-shadow: -9px -9px 18px rgba(255,255,255,.06), 9px 9px 18px rgba(0,0,0,.65);
+    --rc-shadow-in: inset -7px -7px 14px rgba(255,255,255,.05), inset 7px 7px 14px rgba(0,0,0,.7);
+  }
+}
+
+/* ---------------------------------------------------------------------
+ * Theme 3 — Glassmorphism: flat frosted panes, static
+ * ------------------------------------------------------------------- */
+[data-rc-style="glassmorphism"]{
+  --rc-bg:#eef2f6;        --rc-bg-d:#0c1016;
+  --rc-surf: rgba(255,255,255,.5);  --rc-surf-d: rgba(255,255,255,.08);
+  --rc-ink:#15202b;       --rc-ink-d:#eef2f6;
+  --rc-acc:#4f8cff;       --rc-acc2:#8a5cff;
+  --rc-onacc:#fff;
+  --rc-radius:20px;
+  --rc-border: 1px solid rgba(255,255,255,.55);
+  --rc-border-d: 1px solid rgba(255,255,255,.14);
+  --rc-blur: blur(14px) saturate(150%);
+  --rc-gloss: linear-gradient(180deg, rgba(255,255,255,.4), rgba(255,255,255,0) 60%);
+  --rc-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 20px 40px -22px rgba(10,20,40,.4);
+  --rc-shadow-in: inset 0 2px 6px rgba(10,20,40,.3);
+  --rc-font-d: system-ui, -apple-system, sans-serif;
+  --rc-font-b: system-ui, -apple-system, sans-serif;
+}
+
+/* ---------------------------------------------------------------------
+ * Theme 4 — Claymorphism: inflated clay, dual inner light, squish
+ * ------------------------------------------------------------------- */
+[data-rc-style="claymorphism"]{
+  --rc-bg:#e4ece6;        --rc-bg-d:#262a2e;
+  --rc-surf:#f3f6f1;      --rc-surf-d:#30353a;
+  --rc-ink:#2b2a33;       --rc-ink-d:#f1f1ee;
+  --rc-acc:#ff8f70;       --rc-acc2:#82dbb4;
+  --rc-onacc:#2b2a33;
+  --rc-radius:28px;
+  --rc-border: none;
+  --rc-border-d: none;
+  --rc-blur: none;
+  --rc-gloss: none;
+  --rc-shadow: inset -5px -7px 12px rgba(60,80,70,.16), inset 5px 7px 12px rgba(255,255,255,.8), 8px 12px 22px rgba(60,80,70,.28);
+  --rc-shadow-in: inset 6px 8px 14px rgba(60,80,70,.16), inset -5px -6px 12px rgba(255,255,255,.8);
+  --rc-font-d: ui-rounded, system-ui, sans-serif;
+  --rc-font-b: system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) [data-rc-style="claymorphism"], :root:not([data-theme="light"])[data-rc-style="claymorphism"]{
+    --rc-shadow: inset -5px -7px 12px rgba(0,0,0,.4), inset 5px 7px 12px rgba(255,255,255,.08), 8px 12px 22px rgba(0,0,0,.5);
+    --rc-shadow-in: inset 6px 8px 14px rgba(0,0,0,.4), inset -5px -6px 12px rgba(255,255,255,.08);
+  }
+}
+
+/* ---------------------------------------------------------------------
+ * Theme 5 — Brutalism: flat slabs, hard offset shadow, zero blur
+ * ------------------------------------------------------------------- */
+[data-rc-style="brutalism"]{
+  --rc-bg:#efece4;        --rc-bg-d:#0b0b0b;
+  --rc-surf:#efece4;      --rc-surf-d:#0b0b0b;
+  --rc-ink:#0b0b0b;       --rc-ink-d:#efece4;
+  --rc-acc:#d4ff2a;       --rc-acc2:#ff4d1f;
+  --rc-onacc:#0b0b0b;
+  --rc-radius:0px;
+  --rc-border: 3px solid currentColor;
+  --rc-border-d: 3px solid currentColor;
+  --rc-blur: none;
+  --rc-gloss: none;
+  --rc-shadow: 6px 6px 0 currentColor;
+  --rc-shadow-in: none;
+  --rc-font-d: "Arial Black", Impact, system-ui, sans-serif;
+  --rc-font-b: system-ui, Arial, sans-serif;
+}
+
+/* ---------------------------------------------------------------------
+ * Theme 6 — Minimalism: near-monochrome, hairline, almost no shadow
+ * ------------------------------------------------------------------- */
+[data-rc-style="minimalism"]{
+  --rc-bg:#ffffff;        --rc-bg-d:#101010;
+  --rc-surf:#ffffff;      --rc-surf-d:#161616;
+  --rc-ink:#111111;       --rc-ink-d:#f0f0f0;
+  --rc-acc:#111111;       --rc-acc2:#6b6b6b;
+  --rc-onacc:#fff;
+  --rc-radius:6px;
+  --rc-border: 1px solid rgba(0,0,0,.14);
+  --rc-border-d: 1px solid rgba(255,255,255,.16);
+  --rc-blur: none;
+  --rc-gloss: none;
+  --rc-shadow: none;
+  --rc-shadow-in: inset 0 0 0 1px rgba(0,0,0,.14);
+  --rc-font-d: system-ui, -apple-system, sans-serif;
+  --rc-font-b: system-ui, -apple-system, sans-serif;
+}
+
+/* ---------------------------------------------------------------------
+ * Theme 7 — Maximalism: dense, saturated, layered, decorative type
+ * ------------------------------------------------------------------- */
+[data-rc-style="maximalism"]{
+  --rc-bg:#1b1030;        --rc-bg-d:#1b1030;
+  --rc-surf:#2a1850;      --rc-surf-d:#2a1850;
+  --rc-ink:#fdf7ff;       --rc-ink-d:#fdf7ff;
+  --rc-acc:#ff2f92;       --rc-acc2:#eaff3d;
+  --rc-onacc:#1b1030;
+  --rc-radius:26px;
+  --rc-border: 2px solid rgba(255,255,255,.18);
+  --rc-border-d: 2px solid rgba(255,255,255,.18);
+  --rc-blur: none;
+  --rc-gloss: linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,0) 60%);
+  --rc-shadow: 0 0 0 3px rgba(255,47,146,.35), 0 26px 50px -18px rgba(0,0,0,.6);
+  --rc-shadow-in: inset 0 0 0 3px rgba(234,255,61,.5);
+  --rc-font-d: ui-serif, Georgia, serif;
+  --rc-font-b: system-ui, sans-serif;
+  --rc-pattern: radial-gradient(rgba(255,255,255,.12) 1.5px, transparent 1.5px);
+}
+
+/* ---------------------------------------------------------------------
+ * Theme 8 — Liquid Glass: dynamic lensing, pill shapes, moving light
+ * ------------------------------------------------------------------- */
+[data-rc-style="liquid-glass"]{
+  --rc-bg:#04161a;        --rc-bg-d:#04161a;
+  --rc-surf: rgba(255,255,255,.14); --rc-surf-d: rgba(20,22,31,.5);
+  --rc-ink:#ffffff;       --rc-ink-d:#ffffff;
+  --rc-acc:#7fffe0;       --rc-acc2:#2d3dff;
+  --rc-onacc:#06121a;
+  --rc-radius:999px;
+  --rc-border: 1px solid rgba(255,255,255,.38);
+  --rc-border-d: 1px solid rgba(255,255,255,.3);
+  --rc-blur: blur(18px) saturate(180%);
+  --rc-gloss: linear-gradient(180deg, rgba(255,255,255,.3), rgba(255,255,255,0) 55%);
+  --rc-shadow: inset 0 1px 0 rgba(255,255,255,.55), 0 20px 50px -20px rgba(0,0,0,.5);
+  --rc-shadow-in: inset 0 3px 10px rgba(0,0,0,.4);
+  --rc-font-d: system-ui, -apple-system, sans-serif;
+  --rc-font-b: system-ui, -apple-system, sans-serif;
+  --rc-tilt-light: 1;
+}
+
+/* ---------------------------------------------------------------------
+ * Theme 9 — Bento Grid: modular soft tiles on a light canvas
+ * ------------------------------------------------------------------- */
+[data-rc-style="bento-grid"]{
+  --rc-bg:#f2f1ee;        --rc-bg-d:#121314;
+  --rc-surf:#ffffff;      --rc-surf-d:#1b1c1e;
+  --rc-ink:#1a1a1a;       --rc-ink-d:#f2f1ee;
+  --rc-acc:#ff6a3d;       --rc-acc2:#2e6bff;
+  --rc-onacc:#fff;
+  --rc-radius:22px;
+  --rc-border: 1px solid rgba(0,0,0,.06);
+  --rc-border-d: 1px solid rgba(255,255,255,.08);
+  --rc-blur: none;
+  --rc-gloss: none;
+  --rc-shadow: 0 1px 2px rgba(20,20,20,.04), 0 16px 30px -18px rgba(20,20,20,.25);
+  --rc-shadow-in: inset 0 0 0 1px rgba(0,0,0,.08);
+  --rc-font-d: system-ui, -apple-system, sans-serif;
+  --rc-font-b: system-ui, -apple-system, sans-serif;
+  --rc-gap: 16px;
+}
+
+/* ---------------------------------------------------------------------
+ * Theme 10 — Spatial UI: layered glass windows with real 3D depth
+ * ------------------------------------------------------------------- */
+[data-rc-style="spatial-ui"]{
+  --rc-bg:#efe3d3;        --rc-bg-d:#0d1a1c;
+  --rc-surf: rgba(255,255,255,.42); --rc-surf-d: rgba(255,255,255,.12);
+  --rc-ink:#112424;       --rc-ink-d:#f7f4ee;
+  --rc-acc:#8fe3c8;       --rc-acc2:#ffb870;
+  --rc-onacc:#07201c;
+  --rc-radius:32px;
+  --rc-border: 1px solid rgba(255,255,255,.75);
+  --rc-border-d: 1px solid rgba(255,255,255,.28);
+  --rc-blur: blur(30px) saturate(165%);
+  --rc-gloss: none;
+  --rc-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 40px 70px -30px rgba(60,40,20,.28);
+  --rc-shadow-in: inset 0 2px 6px rgba(60,40,20,.3);
+  --rc-font-d: "Bricolage Grotesque", system-ui, sans-serif;
+  --rc-font-b: system-ui, sans-serif;
+  --rc-tilt-light: 1;
+}
+
+/* generic dark fallback for any theme that does not define its own
+   bg-d / surf-d / ink-d / border-d (kept intentionally minimal) */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) [data-rc-style], :root:not([data-theme="light"])[data-rc-style]{
+    background: var(--rc-bg-d, var(--rc-bg));
+    color: var(--rc-ink-d, var(--rc-ink));
+  }
+}
+:root[data-theme="dark"] [data-rc-style], :root[data-theme="dark"][data-rc-style]{
+  background: var(--rc-bg-d, var(--rc-bg));
+  color: var(--rc-ink-d, var(--rc-ink));
+}
+[data-rc-style]{ background: var(--rc-bg); color: var(--rc-ink); }
+
+/* =====================================================================
+ * Shared components — one structural pattern, ten token palettes
+ * =================================================================== */
+*,*::before,*::after{ box-sizing: border-box }
+[data-rc-style]{ font-family: var(--rc-font-b); }
+[data-rc-style] :focus-visible{ outline: 3px solid var(--rc-acc); outline-offset: 3px }
+
+.rc-btn{
+  position:relative; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  min-height: var(--rc-h); padding: 0 22px; border-radius: var(--rc-radius);
+  font: 700 16px/1 var(--rc-font-b); color: var(--rc-ink); text-decoration:none; cursor:pointer;
+  background: var(--rc-surf); border: var(--rc-border, none);
+  backdrop-filter: var(--rc-blur, none); -webkit-backdrop-filter: var(--rc-blur, none);
+  box-shadow: var(--rc-shadow);
+  transition: transform .2s var(--rc-ease), box-shadow .2s var(--rc-ease), background .2s;
+}
+.rc-btn::before{ content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; background: var(--rc-gloss, none) }
+.rc-btn:hover{ transform: translateY(-2px) }
+.rc-btn:active{ transform: translateY(1px) scale(.97); box-shadow: var(--rc-shadow-in) }
+.rc-btn--acc{ background: var(--rc-acc); color: var(--rc-onacc); border-color: transparent }
+.rc-btn--hi{ background: var(--rc-ink); color: var(--rc-bg); border-color: transparent }
+.rc-btn--block{ display:flex; width:100% }
+
+.rc-card,.rc-price,.rc-panel{
+  position:relative; padding:24px; border-radius: var(--rc-radius);
+  background: var(--rc-surf); border: var(--rc-border, none); color: var(--rc-ink);
+  backdrop-filter: var(--rc-blur, none); -webkit-backdrop-filter: var(--rc-blur, none);
+  box-shadow: var(--rc-shadow);
+}
+.rc-card h3,.rc-price h3,.rc-panel h3{ font-family: var(--rc-font-d); margin:0 0 8px; overflow-wrap:break-word; min-width:0 }
+.rc-price{ background: var(--rc-acc); color: var(--rc-onacc) }
+.rc-amount{ font:700 46px/1 var(--rc-font-d); margin:8px 0 4px }
+.rc-amount small{ font:700 14px var(--rc-font-b) }
+.rc-delta{ display:inline-block; margin-left:8px; padding:4px 10px; border-radius:999px; font:700 13px var(--rc-font-b); color:var(--rc-onacc); background:var(--rc-acc) }
+.rc-bars{ display:flex; align-items:flex-end; gap:6px; height:60px; margin:18px 0 }
+.rc-bars i{ flex:1; border-radius:4px 4px 2px 2px; background: var(--rc-acc) }
+
+.rc-switch{ position:relative; width:64px; height:36px; padding:0; border:var(--rc-border,none); border-radius:999px; cursor:pointer; background: var(--rc-surf); box-shadow: var(--rc-shadow-in); transition: background .2s }
+.rc-switch i{ position:absolute; top:3px; left:3px; width:30px; height:30px; border-radius:50%; background: var(--rc-ink); transition: transform .3s var(--rc-ease) }
+.rc-switch[aria-checked="true"]{ background: var(--rc-acc) }
+.rc-switch[aria-checked="true"] i{ transform: translateX(28px); background: var(--rc-onacc) }
+
+.rc-seg{ display:inline-flex; gap:2px; padding:4px; border-radius:var(--rc-radius); background: var(--rc-surf); border: var(--rc-border,none); box-shadow: var(--rc-shadow-in) }
+.rc-seg button{ min-height:40px; padding:0 18px; border:0; border-radius:inherit; background:none; color:var(--rc-ink); font:700 15px var(--rc-font-b); cursor:pointer }
+.rc-seg button[aria-checked="true"]{ background: var(--rc-acc); color: var(--rc-onacc); box-shadow: var(--rc-shadow) }
+
+.rc-chip{ display:inline-flex; min-height:38px; padding:0 16px; margin:4px; border-radius:999px; cursor:pointer; color:var(--rc-ink); background:var(--rc-surf); border:var(--rc-border,none); font:700 14px var(--rc-font-b); box-shadow: var(--rc-shadow) }
+.rc-chip[aria-pressed="true"]{ background: var(--rc-acc); color: var(--rc-onacc) }
+
+.rc-tip{ position:relative; display:inline-flex }
+.rc-tip [role="tooltip"]{ position:absolute; left:50%; bottom:calc(100% + 12px); translate:-50% 6px; opacity:0; visibility:hidden; pointer-events:none; white-space:nowrap;
+  padding:8px 12px; border-radius:12px; font-size:13px; background:var(--rc-ink); color:var(--rc-bg); box-shadow: var(--rc-shadow);
+  transition: opacity .15s, translate .2s var(--rc-ease), visibility 0s .2s }
+.rc-tip:hover [role="tooltip"], .rc-tip:focus-within [role="tooltip"]{ opacity:1; visibility:visible; translate:-50% 0; transition-delay:0s }
+
+.rc-nav{ position:relative; display:flex; gap:4px; padding:6px; border-radius: var(--rc-radius); background: var(--rc-surf); border: var(--rc-border,none);
+  backdrop-filter: var(--rc-blur,none); -webkit-backdrop-filter: var(--rc-blur,none); box-shadow: var(--rc-shadow) }
+.rc-nav a{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:4px; width:64px; padding:9px 0; border-radius:inherit;
+  color: var(--rc-ink); text-decoration:none; font-size:12px; font-weight:700 }
+.rc-nav svg{ width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round }
+.rc-nav__mark{ position:absolute; z-index:0; top:6px; bottom:6px; left:6px; width:64px; border-radius:inherit; pointer-events:none;
+  background: var(--rc-acc); box-shadow: var(--rc-shadow-in); transition: transform .25s var(--rc-ease) }
+.rc-nav a[aria-current]{ color: var(--rc-onacc) }
+
+.rc-bento{ display:grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); grid-auto-rows: 110px; gap: var(--rc-gap) }
+.rc-bento__item{ grid-column: span 1; grid-row: span 1; padding:18px; border-radius: var(--rc-radius); background: var(--rc-surf); border: var(--rc-border,none);
+  color: var(--rc-ink); box-shadow: var(--rc-shadow); overflow:hidden; min-width:0 }
+.rc-bento__item[data-span="2x1"]{ grid-column: span 2 }
+.rc-bento__item[data-span="1x2"]{ grid-row: span 2 }
+.rc-bento__item[data-span="2x2"]{ grid-column: span 2; grid-row: span 2 }
+.rc-bento__item[data-tint="acc"]{ background: var(--rc-acc); color: var(--rc-onacc) }
+.rc-bento__item[data-tint="acc2"]{ background: var(--rc-acc2); color: var(--rc-onacc) }
+
+.rc-tilt{ transform-style: preserve-3d; transform: perspective(1000px) rotateX(var(--rc-rx,0deg)) rotateY(var(--rc-ry,0deg)); transition: transform .2s ease-out }
+
+dialog.rc-modal{ padding:0; width:min(480px,calc(100% - 32px)); border-radius: var(--rc-radius); border: var(--rc-border,none);
+  color: var(--rc-ink); background: var(--rc-surf); backdrop-filter: var(--rc-blur,none); -webkit-backdrop-filter: var(--rc-blur,none); box-shadow: var(--rc-shadow) }
+dialog.rc-modal::backdrop{ background: rgba(0,0,0,.4) }
+dialog.rc-modal .rc-dlg{ padding:26px }
+dialog.rc-modal header{ display:flex; justify-content:space-between; gap:16px; margin-bottom:12px }
+dialog.rc-modal h2{ margin:0; font-family: var(--rc-font-d) }
+
+#rc-toasts{ position:fixed; z-index:1000; right:20px; bottom:calc(20px + env(safe-area-inset-bottom,0px)); display:grid; gap:10px; justify-items:end; pointer-events:none }
+.rc-toast{ padding:12px 18px; border-radius: var(--rc-radius); font-weight:700; color: var(--rc-ink); background: var(--rc-surf); border: var(--rc-border,none); box-shadow: var(--rc-shadow) }
+
+[data-rc-style="maximalism"] .rc-card,[data-rc-style="maximalism"] .rc-panel,[data-rc-style="maximalism"] .rc-price{ background-image: var(--rc-pattern,none); background-size:14px 14px }
+
+@media (prefers-reduced-motion: reduce){ *,*::before,*::after{ transition:none!important; animation:none!important } }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))){
+  .rc-btn,.rc-card,.rc-price,.rc-panel,.rc-nav,dialog.rc-modal{ background: var(--rc-surf-solid, var(--rc-surf)) }
+}

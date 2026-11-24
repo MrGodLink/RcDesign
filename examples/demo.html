@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" data-rc-style="claymorphism">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RcDesign — 10 styles, one engine</title>
+<style>
+  body{margin:0;padding:28px 20px 100px;max-width:1040px;margin-inline:auto}
+  .rc-demo-bar{position:sticky;top:0;z-index:30;display:flex;flex-wrap:wrap;gap:8px;padding:14px 0;margin-bottom:28px;background:inherit}
+  .rc-demo-bar button{all:unset;cursor:pointer}
+  h1{font-size:clamp(28px,5vw,44px);margin:0 0 6px}
+  p.lead{opacity:.8;max-width:60ch;margin:0 0 26px}
+  h2{font-size:22px;margin:48px 0 18px}
+  .row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:16px}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;align-items:start}
+</style>
+</head>
+<body>
+
+<div class="rc-demo-bar" id="styleBar"></div>
+
+<h1>RcDesign</h1>
+<p class="lead">One engine, ten UI design styles, zero markup changes.
+Pick a style above — every control below is the same HTML.</p>
+
+<h2>Navigation</h2>
+<nav class="rc-nav rc-tilt" aria-label="Demo nav">
+  <a href="#home" data-icon="home" aria-current="page">Home</a>
+  <a href="#likes" data-icon="heart">Likes</a>
+  <a href="#create" data-icon="plus">Create</a>
+  <a href="#profile" data-icon="user">Profile</a>
+  <a href="#alerts" data-icon="bell">Alerts</a>
+</nav>
+
+<h2>Buttons &amp; controls</h2>
+<div class="row">
+  <button class="rc-btn rc-btn--hi">Start a project</button>
+  <button class="rc-btn">Clear</button>
+  <button class="rc-btn rc-btn--acc">Tinted</button>
+</div>
+<div class="row">
+  <button class="rc-switch" aria-label="Notifications" aria-checked="true"></button><span>Notifications</span>
+  <div class="rc-seg" role="radiogroup" aria-label="Type">
+    <button role="radio" aria-checked="false" tabindex="-1">Design</button>
+    <button role="radio" aria-checked="true">Video</button>
+    <button role="radio" aria-checked="false" tabindex="-1">Apps</button>
+  </div>
+  <span class="rc-chip" aria-pressed="true">AI</span>
+  <span class="rc-chip" aria-pressed="false">Film</span>
+</div>
+
+<h2>Cards &amp; overlays</h2>
+<div class="grid3">
+  <article class="rc-card rc-tilt">
+    <h3>Content card</h3>
+    <p>Image, title, text and an action.</p>
+    <button class="rc-btn rc-btn--acc" data-rc-open="details">Open details</button>
+  </article>
+  <div class="rc-price">
+    <h3>Pricing</h3>
+    <div class="rc-amount">€79 <small>one-time</small></div>
+  </div>
+  <div class="rc-panel">
+    <h3>Dashboard</h3>
+    <div>12,480 <span class="rc-delta">+18%</span></div>
+    <div class="rc-bars"><i style="height:40%"></i><i style="height:60%"></i><i style="height:35%"></i><i style="height:85%"></i><i style="height:100%"></i></div>
+    <div class="row">
+      <span class="rc-tip"><button class="rc-btn" aria-describedby="t1">Tooltip</button><span id="t1" role="tooltip">Hover or focus me</span></span>
+      <button class="rc-btn rc-btn--acc" id="toastBtn">Show toast</button>
+    </div>
+  </div>
+</div>
+
+<h2>Bento grid</h2>
+<div class="rc-bento">
+  <div class="rc-bento__item" data-span="2x1" data-tint="acc"><strong>Revenue</strong></div>
+  <div class="rc-bento__item"><strong>Users</strong></div>
+  <div class="rc-bento__item" data-span="1x2"><strong>Retention</strong></div>
+  <div class="rc-bento__item" data-tint="acc2"><strong>Churn</strong></div>
+  <div class="rc-bento__item"><strong>NPS</strong></div>
+</div>
+
+<dialog class="rc-modal" id="details" aria-labelledby="dt">
+  <div class="rc-dlg">
+    <header><h2 id="dt">RcDesign</h2><button class="rc-btn" data-rc-close>Close</button></header>
+    <p>Ten styles, one shared set of components. Switch the style above and watch this exact markup change character.</p>
+    <button class="rc-btn rc-btn--hi rc-btn--block" data-rc-close>Got it</button>
+  </div>
+</dialog>
+
+<script src="../rc_design.js"></script>
+<script>
+  var STYLES = ['skeuomorphism','neumorphism','glassmorphism','claymorphism','brutalism','minimalism','maximalism','liquid-glass','bento-grid','spatial-ui'];
+  var bar = document.getElementById('styleBar');
+  STYLES.forEach(function (name) {
+    var b = document.createElement('button');
+    b.className = 'rc-chip';
+    b.textContent = name;
+    b.setAttribute('aria-pressed', String(name === document.documentElement.getAttribute('data-rc-style')));
+    b.addEventListener('click', function () {
+      RcDesign.use(name);
+      bar.querySelectorAll('.rc-chip').forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+    });
+    bar.appendChild(b);
+  });
+  document.getElementById('toastBtn').addEventListener('click', function () {
+    RcDesign.toast('Saved to your library');
+  });
+</script>
+</body>
+</html>
