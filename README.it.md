@@ -8,14 +8,6 @@
 
 **Un motore solo, dieci stili di design UI, zero modifiche al markup.** Skeuomorphism, Neumorphism, Glassmorphism, Claymorphism, Brutalism, Minimalism, Maximalism, Liquid Glass, Bento Grid e Spatial UI — cambi l'aspetto di tutta la pagina con un solo attributo.
 
-**Demo dal vivo:** clona il repository e apri
-[`examples/demo.html`](./examples/demo.html) nel browser. Su github.com
-sfogliando il repository si vede solo il *sorgente* di un file HTML — non
-viene eseguito — quindi cliccare questo link qui non mostra la pagina
-funzionante: aprila dal tuo disco, oppure attiva **GitHub Pages** per
-questo repository (Settings → Pages → deploy da `main`) per avere un URL
-pubblico realmente funzionante.
-
 ---
 
 ## Panoramica
