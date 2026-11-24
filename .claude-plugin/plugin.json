@@ -1,0 +1,30 @@
+{
+  "name": "rc-design",
+  "description": "RcDesign — apply 10 UI design styles (Skeuomorphism, Neumorphism, Glassmorphism, Claymorphism, Brutalism, Minimalism, Maximalism, Liquid Glass, Bento Grid, Spatial UI) to any page with one script and one CSS file.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Raffaele Catapano",
+    "url": "https://github.com/MrGodLink"
+  },
+  "homepage": "https://github.com/MrGodLink/RcDesign",
+  "repository": "https://github.com/MrGodLink/RcDesign",
+  "license": "MIT",
+  "keywords": [
+    "design-system",
+    "css",
+    "ui",
+    "skeuomorphism",
+    "neumorphism",
+    "glassmorphism",
+    "claymorphism",
+    "brutalism",
+    "minimalism",
+    "maximalism",
+    "liquid-glass",
+    "bento-grid",
+    "spatial-ui"
+  ],
+  "skills": [
+    "./skills/rc-design"
+  ]
+}
