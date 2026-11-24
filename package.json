@@ -12,7 +12,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "node build/build.mjs"
+    "build": "node build/build.mjs",
+    "test": "node build/smoke-test.mjs"
   },
   "author": {
     "name": "Raffaele Catapano",
@@ -25,8 +26,24 @@
   },
   "homepage": "https://github.com/MrGodLink/RcDesign",
   "keywords": [
-    "design-system", "css", "ui", "skeuomorphism", "neumorphism",
-    "glassmorphism", "claymorphism", "brutalism", "minimalism",
-    "maximalism", "liquid-glass", "bento-grid", "spatial-ui"
-  ]
+    "design-system",
+    "css",
+    "ui",
+    "skeuomorphism",
+    "neumorphism",
+    "glassmorphism",
+    "claymorphism",
+    "brutalism",
+    "minimalism",
+    "maximalism",
+    "liquid-glass",
+    "bento-grid",
+    "spatial-ui"
+  ],
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "javascript-obfuscator": "^5.10.1",
+    "jsdom": "^31.0.1",
+    "terser": "^5.51.4"
+  }
 }
