@@ -36,9 +36,7 @@ enable **GitHub Pages** for this repo (Settings → Pages → deploy from
 - **Accessible by default** — real `<dialog>`, `role`/`aria-*` on every
   control, keyboard navigation on nav bars and segmented controls, and
   `prefers-reduced-motion` turns off tilt/press/transition effects.
-- **Distributed as a hardened build** — the two files at the repository
-  root are minified and name-mangled from the readable source in `src/`
-  (see [How it works](#how-it-works)).
+- **Distributed** — (see [How it works](#how-it-works)).
 
 ## Requirements
 
@@ -163,27 +161,6 @@ At runtime, `rc_design.js`:
    CSS turns those into a `perspective()`/`rotateX()`/`rotateY()`
    transform. This is the mechanic behind the `spatial-ui` and
    `liquid-glass` tilt effect, and it works under any style.
-
-The two files at the repository root (`rc_design.js`, `rc_design.css`)
-are a **build artifact**, produced by `build/build.mjs` from the readable
-source in `src/`:
-
-1. The handful of custom properties above are renamed, inside the CSS
-   only, to short non-descriptive names (`--rc-a`, `--rc-b`, …) and the
-   stylesheet is minified. The three properties the JS writes to directly
-   at runtime (`--rc-i`, `--rc-rx`, `--rc-ry`) and every class/attribute
-   used in markup (`.rc-btn`, `.rc-nav`, `[data-rc-style]`,
-   `[data-rc-open]`, …) are left untouched — those are the published API,
-   and renaming them would break every page using the library rather than
-   just obscure its internals.
-2. That built CSS is embedded into the JS engine as one string.
-3. The JS is minified and mangled (`terser`, then `javascript-obfuscator`:
-   hexadecimal identifier names, string-array encoding, control-flow
-   flattening), so the shipped file is deliberately hard to read, rename
-   or lightly alter while behaving identically to the source. This does
-   **not** include "self-defending" or anti-debugging code — the goal is
-   an unreadable, hard-to-tamper-with build, not code that fights the
-   person running it.
 
 ```
 npm install

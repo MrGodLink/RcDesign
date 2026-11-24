@@ -40,9 +40,7 @@ pubblico realmente funzionante.
   controllo, navigazione da tastiera su nav bar e segmented control, e
   `prefers-reduced-motion` disattiva gli effetti di inclinazione,
   pressione e transizione.
-- **Distribuito come build indurita** — i due file nella radice del
-  repository sono minificati e con i nomi offuscati a partire dal
-  sorgente leggibile in `src/` (vedi [Come funziona](#come-funziona)).
+- **Distribuito** — (vedi [Come funziona](#come-funziona)).
 
 ## Requisiti
 
@@ -172,28 +170,6 @@ A runtime, `rc_design.js`:
    l'inclinazione di `spatial-ui` e `liquid-glass`, e funziona sotto
    qualsiasi stile.
 
-I due file nella radice del repository (`rc_design.js`, `rc_design.css`)
-sono un **artefatto di build**, prodotto da `build/build.mjs` a partire
-dal sorgente leggibile in `src/`:
-
-1. Le custom property elencate sopra vengono rinominate, solo all'interno
-   del CSS, con nomi corti e non descrittivi (`--rc-a`, `--rc-b`, …) e il
-   foglio di stile viene minificato. Le tre proprietà che il JS scrive
-   direttamente a runtime (`--rc-i`, `--rc-rx`, `--rc-ry`) e ogni
-   classe/attributo usato nel markup (`.rc-btn`, `.rc-nav`,
-   `[data-rc-style]`, `[data-rc-open]`, …) restano invariati — sono
-   l'API pubblica, e rinominarli romperebbe ogni pagina che usa la
-   libreria invece di limitarsi a oscurarne l'interno.
-2. Quel CSS già costruito viene incluso nel motore JS come un'unica
-   stringa.
-3. Il JS viene minificato e con i nomi mescolati (`terser`, poi
-   `javascript-obfuscator`: identificatori esadecimali, codifica delle
-   stringhe in un array, control-flow flattening), così il file
-   distribuito è deliberatamente difficile da leggere, rinominare o
-   alterare con leggerezza, pur comportandosi in modo identico al
-   sorgente. Questo **non** include tecniche "self-defending" o
-   anti-debug — l'obiettivo è una build illeggibile e difficile da
-   manomettere, non un codice che ostacola chi lo esegue.
 
 ```
 npm install
