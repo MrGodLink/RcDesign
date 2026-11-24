@@ -2,9 +2,7 @@
 
 **English** | [Italiano](./README.it.md)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE) [![Version](https://img.shields.io/badge/version-1.0.0-green)](#) [![Platform](https://img.shields.io/badge/platform-Browser%20%7C%20JS%20%2B%20CSS-blue)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/MrGodLink/RcDesign?style=social)](https://github.com/MrGodLink/RcDesign/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE) [![Version](https://img.shields.io/badge/version-1.0.0-green)](#) [![Platform](https://img.shields.io/badge/platform-Browser%20%7C%20JS%20%2B%20CSS-blue)](#) [![GitHub stars](https://img.shields.io/github/stars/MrGodLink/RcDesign?style=social)](https://github.com/MrGodLink/RcDesign/stargazers)
 
 **One engine, ten UI design styles, zero markup changes.** Skeuomorphism, Neumorphism, Glassmorphism, Claymorphism, Brutalism, Minimalism, Maximalism, Liquid Glass, Bento Grid and Spatial UI — switch the whole look of a page with one attribute.
 
