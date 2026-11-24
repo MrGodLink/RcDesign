@@ -8,13 +8,6 @@
 
 **One engine, ten UI design styles, zero markup changes.** Skeuomorphism, Neumorphism, Glassmorphism, Claymorphism, Brutalism, Minimalism, Maximalism, Liquid Glass, Bento Grid and Spatial UI — switch the whole look of a page with one attribute.
 
-**Live demo:** clone the repo and open [`examples/demo.html`](./examples/demo.html)
-in your browser. GitHub only shows the *source* of an HTML file when you
-browse the repository on github.com — it doesn't execute it — so clicking
-that link here won't render the page; open it from your own disk, or
-enable **GitHub Pages** for this repo (Settings → Pages → deploy from
-`main`) to get a real hosted URL for it.
-
 ---
 
 ## Overview
