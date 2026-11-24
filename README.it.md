@@ -6,6 +6,8 @@
 
 **Un motore solo, dieci stili di design UI, zero modifiche al markup.** Skeuomorphism, Neumorphism, Glassmorphism, Claymorphism, Brutalism, Minimalism, Maximalism, Liquid Glass, Bento Grid e Spatial UI — cambi l'aspetto di tutta la pagina con un solo attributo.
 
+**[▶ Demo live](https://mrgodlink.github.io/RcDesign/)** — tutti e dieci gli stili, da provare subito nel browser. Nessuna installazione.
+
 ---
 
 ## Panoramica
@@ -123,6 +125,32 @@ chip, tooltip, modale, bento grid, tilt) è documentato per intero in
 | Aggiungere un undicesimo stile              | Stesso file — aggiungi un nuovo blocco di token, il CSS condiviso dei componenti lo legge già |
 | Icone disponibili per `data-icon="…"`       | Oggetto `ICONS` in `src/rc-design.js`                |
 | Impostazioni di build/offuscamento          | `build/build.mjs`                                    |
+
+## Usalo con l'AI
+
+RcDesign dà a un assistente AI un vocabolario di design già pronto: le pagine generate non si assomigliano più tutte e non devi chiedere CSS personalizzato ogni volta. Incolla questo prompt in Claude, ChatGPT, Cursor o in qualsiasi assistente di programmazione e sostituisci le parti tra parentesi quadre:
+
+```text
+Crea una pagina web responsive per [descrivi il tuo progetto].
+
+Usa RcDesign per TUTTI i componenti UI: non scrivere CSS personalizzato per
+pulsanti, card, navigazione, toggle, modali o toast.
+
+1. Caricalo con un solo tag nel <head>:
+   <script src="https://cdn.jsdelivr.net/gh/MrGodLink/RcDesign/rc_design.js" defer></script>
+2. Imposta lo stile su <html>, ad esempio <html data-rc-style="[stile]">.
+   Stili validi: skeuomorphism, neumorphism, glassmorphism, claymorphism, brutalism, minimalism, maximalism, liquid-glass, bento-grid, spatial-ui.
+3. Usa queste classi: rc-btn (+ rc-btn--acc, rc-btn--hi, rc-btn--block),
+   rc-card, rc-nav, rc-switch, rc-seg, rc-chip, rc-tip, rc-modal,
+   rc-bento / rc-bento__item (data-span="1x1|2x1|1x2|2x2"), rc-tilt.
+4. Mostra i messaggi con RcDesign.toast('testo'). Cambia stile a runtime
+   con RcDesign.use('id-stile').
+5. Riferimento: https://github.com/MrGodLink/RcDesign
+```
+
+Consiglio: chiedi la stessa pagina in più stili ("ora rendila in `brutalism`"): cambia solo il valore di `data-rc-style`, il markup resta identico.
+
+**Claude Code / claude.ai:** questo repository è anche una skill (`skills/rc-design/`), quindi Claude può scegliere RcDesign da solo quando chiedi uno dei dieci stili per nome.
 
 ## Come funziona
 

@@ -6,6 +6,8 @@
 
 **One engine, ten UI design styles, zero markup changes.** Skeuomorphism, Neumorphism, Glassmorphism, Claymorphism, Brutalism, Minimalism, Maximalism, Liquid Glass, Bento Grid and Spatial UI — switch the whole look of a page with one attribute.
 
+**[▶ Live demo](https://mrgodlink.github.io/RcDesign/)** — all ten styles, switchable in the browser. No install needed.
+
 ---
 
 ## Overview
@@ -119,6 +121,32 @@ tooltip, modal, bento grid, tilt) is documented in full in
 | Add an eleventh style                  | Same file — add a new token block, the shared component CSS already reads it |
 | Icons available to `data-icon="…"`     | `ICONS` object in `src/rc-design.js`          |
 | Build/obfuscation settings             | `build/build.mjs`                             |
+
+## Use it with AI
+
+RcDesign gives an AI assistant a ready-made design vocabulary, so generated pages stop looking alike and you don't need to ask for custom CSS every time. Paste this prompt into Claude, ChatGPT, Cursor or any coding assistant and replace the bracketed parts:
+
+```text
+Build a responsive web page for [describe your project].
+
+Use RcDesign for ALL UI components — do not write custom CSS for buttons,
+cards, navigation, toggles, modals or toasts.
+
+1. Load it with a single tag in <head>:
+   <script src="https://cdn.jsdelivr.net/gh/MrGodLink/RcDesign/rc_design.js" defer></script>
+2. Set the style on <html>, e.g. <html data-rc-style="[style]">.
+   Valid styles: skeuomorphism, neumorphism, glassmorphism, claymorphism, brutalism, minimalism, maximalism, liquid-glass, bento-grid, spatial-ui.
+3. Use these classes: rc-btn (+ rc-btn--acc, rc-btn--hi, rc-btn--block),
+   rc-card, rc-nav, rc-switch, rc-seg, rc-chip, rc-tip, rc-modal,
+   rc-bento / rc-bento__item (data-span="1x1|2x1|1x2|2x2"), rc-tilt.
+4. Show messages with RcDesign.toast('text'). Switch style at runtime
+   with RcDesign.use('style-id').
+5. Reference: https://github.com/MrGodLink/RcDesign
+```
+
+Tip: ask for the same page in several styles ("now render it as `brutalism`") — only the `data-rc-style` value changes, the markup stays identical.
+
+**Claude Code / claude.ai:** this repository is also a skill (`skills/rc-design/`), so Claude can pick RcDesign by itself when you ask for one of the ten styles by name.
 
 ## How it works
 
