@@ -29,7 +29,7 @@ correct JavaScript MIME type:
 <script src="https://cdn.jsdelivr.net/gh/MrGodLink/RcDesign/rc_design.js" defer></script>
 ```
 
-Pin a version/tag in production (`.../RcDesign@1.0.0/rc_design.js`) so a
+Pin a version/tag in production (`.../RcDesign@1.1.0/rc_design.js`) so a
 future push to the repo can't change already-deployed pages. For local
 or offline work, copy `rc_design.js` next to the page instead.
 

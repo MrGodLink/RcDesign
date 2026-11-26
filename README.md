@@ -2,7 +2,7 @@
 
 **English** | [Italiano](./README.it.md)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE) [![Version](https://img.shields.io/badge/version-1.0.0-green)](#) [![Platform](https://img.shields.io/badge/platform-Browser%20%7C%20JS%20%2B%20CSS-blue)](#) [![GitHub stars](https://img.shields.io/github/stars/MrGodLink/RcDesign?style=social)](https://github.com/MrGodLink/RcDesign/stargazers) [![Claude Skill](https://img.shields.io/badge/Claude-Skill-d97757)](#) [![AI Agent](https://img.shields.io/badge/AI-Agent-purple)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE) [![Version](https://img.shields.io/badge/version-1.1.0-green)](#) [![Platform](https://img.shields.io/badge/platform-Browser%20%7C%20JS%20%2B%20CSS-blue)](#) [![GitHub stars](https://img.shields.io/github/stars/MrGodLink/RcDesign?style=social)](https://github.com/MrGodLink/RcDesign/stargazers) [![Claude Skill](https://img.shields.io/badge/Claude-Skill-d97757)](#) [![AI Agent](https://img.shields.io/badge/AI-Agent-purple)](#)
 
 **One engine, ten UI design styles, zero markup changes.** Skeuomorphism, Neumorphism, Glassmorphism, Claymorphism, Brutalism, Minimalism, Maximalism, Liquid Glass, Bento Grid and Spatial UI — switch the whole look of a page with one attribute.
 
@@ -57,7 +57,7 @@ Pin a version in production so a future push to this repo can't change a
 page that already shipped:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/MrGodLink/RcDesign@1.0.0/rc_design.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/MrGodLink/RcDesign@1.1.0/rc_design.js" defer></script>
 ```
 
 > **Why jsDelivr and not `raw.githubusercontent.com`?** GitHub serves raw

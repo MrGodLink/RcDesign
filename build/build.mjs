@@ -38,7 +38,7 @@ const OUT_CSS = path.join(root, 'rc_design.css');
 const OUT_JS = path.join(root, 'rc_design.js');
 
 const BANNER =
-  '/*! RcDesign v1.0.0 | (c) 2026 Raffaele Catapano | ' +
+  '/*! RcDesign v1.1.0 | (c) 2026 Raffaele Catapano | ' +
   'https://github.com/MrGodLink/RcDesign | MIT License */';
 
 // Custom properties that are a live contract between the CSS and the

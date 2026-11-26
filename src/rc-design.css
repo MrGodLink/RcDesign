@@ -305,7 +305,7 @@
  * =================================================================== */
 [data-rc-style],[data-rc-style]::before,[data-rc-style]::after,[data-rc-style] *,[data-rc-style] *::before,[data-rc-style] *::after{ box-sizing: border-box }
 [data-rc-style]{ font-family: var(--rc-font-b); }
-[data-rc-style] :focus-visible{ outline: 3px solid var(--rc-focus, var(--rc-ink)); outline-offset: 3px } /* acc era spesso invisibile sul fondo (1.0:1 in brutalism) */
+[data-rc-style] :focus-visible{ outline: 3px solid var(--rc-ink); outline-offset: 3px } /* --rc-ink ha contrasto alto sul --rc-bg di ogni tema; offset 3px pone il ring fuori dal controllo */
 
 .rc-btn{
   position:relative; isolation:isolate; display:inline-flex; align-items:center; justify-content:center; gap:8px;
@@ -388,7 +388,10 @@ dialog.rc-modal header{ display:flex; justify-content:space-between; gap:16px; m
 dialog.rc-modal h2{ margin:0; font-family: var(--rc-font-d) }
 
 #rc-toasts{ position:fixed; z-index:1000; right:20px; bottom:calc(20px + env(safe-area-inset-bottom,0px)); display:grid; gap:10px; justify-items:end; pointer-events:none }
-.rc-toast{ padding:12px 18px; border-radius: var(--rc-radius); font-weight:700; color: var(--rc-ink); background: var(--rc-surf); border: var(--rc-border,none); box-shadow: var(--rc-shadow) }
+.rc-toast{ padding:12px 18px; border-radius: var(--rc-radius); font-weight:700; color: var(--rc-ink); background: var(--rc-surf); border: var(--rc-border,none); box-shadow: var(--rc-shadow);
+  opacity:1; transform:translateY(0); transition: opacity .2s var(--rc-ease), transform .2s var(--rc-ease); animation: rc-toast-in .2s var(--rc-ease) }
+.rc-toast--out{ opacity:0; transform:translateY(8px) }
+@keyframes rc-toast-in{ from{ opacity:0; transform:translateY(8px) } to{ opacity:1; transform:translateY(0) } }
 
 [data-rc-style="brutalism"] .rc-btn--acc,[data-rc-style="brutalism"] .rc-btn--hi{ border-color: currentColor }
 [data-rc-style="brutalism"] .rc-btn:hover{ transform: translate(-2px,-2px); box-shadow: 8px 8px 0 currentColor }
